@@ -39,7 +39,9 @@ class Prestamos extends BaseDeDatos
 
   public function update($data)
   {
-    return $this->executeUpdate("update prestamos set id_alumno='{$data['id_alumno']}', id_equipo='{$data['id_equipo']}', estado_prestamo='entregado' where id_prestamo='{$data['id_prestamo']}'");
+    //return $this->executeUpdate("update prestamos set id_alumno='{$data['id_alumno']}', id_equipo='{$data['id_equipo']}', estado_prestamo='entregado' where id_prestamo='{$data['id_prestamo']}'");
+    return $this->executeUpdate("
+    update prestamos set estado_prestamo='{$data['estado_prestamo']}' where id_prestamo='{$data['id_prestamo1']}'");
   }
 
   public function getOnePrestamo($id)

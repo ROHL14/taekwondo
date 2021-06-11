@@ -58,6 +58,7 @@
           </div>
         </div>
       </div>
+
       <div class="content-panel m-4 d-none" id="panelFormulario">
         <div class="row">
           <div class="col-md-10 mx-auto">
@@ -90,9 +91,34 @@
           </div>
         </div>
       </div>
-  </div>
-  </div>
-  </section>
+
+      <div class="content-panel m-4 d-none" id="panelFormularioPres">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <h4><i class="fa fa-user"></i>Prestamos
+            </h4>
+            <hr>
+            <form class="form-horizontal" role="form" id="miformPres" enctype="multipart/form-data">
+              <input type="hidden" id="id_prestamo1" name="id_prestamo1" value="0" class="campo">
+
+              <div class="form-group row">
+                <label for="estado_prestamo" class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-10">
+                  <select class="form-control campo" id="estado_prestamo" name="estado_prestamo" required>
+                    <option value="prestado" selected>Prestado</option>
+                    <option value="entregado">Entregado</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-default" id="btnCancelar2">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section>
   </div>
   <?php include "app/views/secciones/scripts.php" ?>
   <script type="text/javascript" src="<?php echo URL; ?>public_html/js/prestamos.js"></script>

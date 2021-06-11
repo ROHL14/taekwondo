@@ -5,10 +5,13 @@ const searchText = document.querySelector("#txtSearch");
 const btnNew = document.querySelector("#btnAgregar");
 const panelDatos = document.querySelector("#panelDatos");
 const panelFormulario = document.querySelector("#panelFormulario");
+const panelFormularioPres = document.querySelector("#panelFormularioPres");
 const idAlumno = document.querySelector("#id_alumno");
 const idEquipo = document.querySelector("#id_equipo");
 const miForm = document.querySelector("#miform");
+const miFormPres = document.querySelector("#miformPres");
 const btnCancelar = document.querySelector("#btnCancelar");
+const btnCancelar2 = document.querySelector("#btnCancelar2");
 const recordShow = 4;
 const API = new Api();
 const objDatos = {
@@ -25,7 +28,9 @@ function eventListeners() {
   searchText.addEventListener("input", aplicarFiltro);
   btnNew.addEventListener("click", agregarPrestamo);
   miform.addEventListener("submit", guardarPrestamo);
+  miformPres.addEventListener("submit", guardarPrestamoUpd);
   btnCancelar.addEventListener("click", cancelarPrestamo);
+  btnCancelar2.addEventListener("click", cancelarPrestamo);
 }
 
 //Funciones
@@ -33,6 +38,7 @@ function eventListeners() {
 function cancelarPrestamo() {
   panelDatos.classList.remove("d-none");
   panelFormulario.classList.add("d-none");
+  panelFormularioPres.classList.add("d-none");
   cargarDatos();
 }
 
@@ -40,6 +46,30 @@ function guardarPrestamo(e) {
   e.preventDefault();
   const formdata = new FormData(miForm);
   API.savePrestamo(formdata)
+    .then((data) => {
+      if (data.success) {
+        cancelarPrestamo();
+        Swal.fire({
+          icon: "info",
+          text: data.msg,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.msg,
+        });
+      }
+    })
+    .catch((error) => {
+      console.error("Error", error);
+    });
+}
+
+function guardarPrestamoUpd(e) {
+  e.preventDefault();
+  const formdata = new FormData(miFormPres);
+  API.updatePrestamo(formdata)
     .then((data) => {
       if (data.success) {
         cancelarPrestamo();
@@ -209,7 +239,7 @@ function crearPaginacion() {
 function editarPrestamo(id) {
   limpiarForm(1);
   panelDatos.classList.add("d-none");
-  panelFormulario.classList.remove("d-none");
+  panelFormularioPres.classList.remove("d-none");
   API.getOnePrestamo(id)
     .then((data) => {
       if (data.success) {
@@ -228,18 +258,8 @@ function editarPrestamo(id) {
 }
 
 function mostrarDatosForm(record) {
-  const {
-    id_prestamo,
-    id_alumno,
-    id_equipo,
-    nombre,
-    apellido,
-    equipo,
-    estado_prestamo,
-  } = record;
-  document.querySelector("#id_prestamo").value = id_prestamo;
-  document.querySelector("#id_alumno").value = id_alumno;
-  document.querySelector("#id_equipo").value = id_equipo;
+  const { id_prestamo } = record;
+  document.querySelector("#id_prestamo1").value = id_prestamo;
 }
 
 function eliminarPrestamo(id) {

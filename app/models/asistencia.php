@@ -9,17 +9,17 @@ class Asistencia extends BaseDeDatos
 
   public function getAll()
   {
-    return $this->executeQuery("Select a.*, b.*, c.* from alumnos c inner join (horarios b inner join asistencia a on b.id_horario=a.id_horario) on c.id_alumno=a.id_alumno");
+    return $this->executeQuery("Select a.*, b.*, c.* from horarios c inner join (alumnos b inner join asistencia a on b.id_alumno=a.id_alumno) on c.id_horario=b.id_horario");
   }
 
   public function getAsistenciaByHorario($id)
   {
-    return $this->executeQuery("Select a.*, b.*, c.* from alumnos c inner join (horarios b inner join asistencia a on b.id_horario=a.id_horario) on c.id_alumnos=a.id_alumnos where b.id_horario='$id'");
+    return $this->executeQuery("Select a.*, b.*, c.* from horarios c inner join (alumnos b inner join asistencia a on b.id_alumno=a.id_alumno) on c.id_horario=b.id_horario where c.id_horario='$id'");
   }
 
   public function getOneAsistenciaByID($id)
   {
-    return $this->executeQuery("Select a.*, b.*, c.* from alumnos c inner join (horarios b inner join asistencia a on b.id_horario=a.id_horario) on c.id_alumno=a.id_alumno where a.id_asistencia='$id'");
+    return $this->executeQuery("Select a.*, b.*, c.* from horarios c inner join (alumnos b inner join asistencia a on b.id_alumno=a.id_alumno) on c.id_horario=b.id_horario where a.id_asistencia='$id'");
   }
 
   public function getAllHorarios()

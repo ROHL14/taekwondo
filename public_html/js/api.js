@@ -16,26 +16,6 @@ class Api {
     const data = await query.json();
     return data;
   }
-  async loadLibros() {
-    const query = await fetch(`${BASE_API}libros/getAll`);
-    const data = await query.json();
-    return data;
-  }
-  async loadAutores() {
-    const query = await fetch(`${BASE_API}libros/getAllAutores`);
-    const data = await query.json();
-    return data;
-  }
-  /*async loadCategorias() {
-    const query = await fetch(`${BASE_API}libros/getAllCategorias`);
-    const data = await query.json();
-    return data;
-  }
-  async loadPaises() {
-    const query = await fetch(`${BASE_API}libros/getAllPaises`);
-    const data = await query.json();
-    return data;
-  }*/
   async loadCategorias() {
     const query = await fetch(`${BASE_API}categorias/getAll`);
     const data = await query.json();
@@ -115,22 +95,6 @@ class Api {
   // Save
   async saveUser(form) {
     const query = await fetch(`${BASE_API}usuarios/save`, {
-      method: "POST",
-      body: form,
-    });
-    const data = await query.json();
-    return data;
-  }
-  async saveLibro(form) {
-    const query = await fetch(`${BASE_API}libros/save`, {
-      method: "POST",
-      body: form,
-    });
-    const data = await query.json();
-    return data;
-  }
-  async saveAutor(form) {
-    const query = await fetch(`${BASE_API}autores/save`, {
       method: "POST",
       body: form,
     });
@@ -218,6 +182,14 @@ class Api {
     const data = await query.json();
     return data;
   }
+  async updatePrestamo(form) {
+    const query = await fetch(`${BASE_API}prestamos/update`, {
+      method: "POST",
+      body: form,
+    });
+    const data = await query.json();
+    return data;
+  }
   async saveAsistencia(form) {
     const query = await fetch(`${BASE_API}asistencia/save`, {
       method: "POST",
@@ -230,16 +202,6 @@ class Api {
   // GET one
   async getOneUser(id) {
     const query = await fetch(`${BASE_API}usuarios/getOneUser?id=${id}`);
-    const data = await query.json();
-    return data;
-  }
-  async getOneAutor(id) {
-    const query = await fetch(`${BASE_API}autores/getOneAutor?id=${id}`);
-    const data = await query.json();
-    return data;
-  }
-  async getOneLibro(id) {
-    const query = await fetch(`${BASE_API}libros/getOneLibro?id=${id}`);
     const data = await query.json();
     return data;
   }
@@ -306,16 +268,6 @@ class Api {
   // Delete
   async deleteUser(id) {
     const query = await fetch(`${BASE_API}usuarios/deleteUser?id=${id}`);
-    const data = await query.json();
-    return data;
-  }
-  async deleteLibro(id) {
-    const query = await fetch(`${BASE_API}libros/deleteLibro?id=${id}`);
-    const data = await query.json();
-    return data;
-  }
-  async deleteAutor(id) {
-    const query = await fetch(`${BASE_API}autores/deleteAutor?id=${id}`);
     const data = await query.json();
     return data;
   }

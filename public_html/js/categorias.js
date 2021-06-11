@@ -181,7 +181,8 @@ function mostrarDatosForm(record) {
 
 function eliminarCategoria(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si la categoria esta vinculada a algun equipo no se borrara)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,

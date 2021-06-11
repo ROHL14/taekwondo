@@ -16,6 +16,20 @@ const objDatos = {
   currentPage: 1,
   filter: "",
 };
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = "0" + dd;
+}
+if (mm < 10) {
+  mm = "0" + mm;
+}
+today = yyyy + "-" + mm + "-" + dd;
+document.querySelector("#fecha").setAttribute("min", today);
+
 //Eventos
 eventListeners();
 
@@ -217,7 +231,8 @@ function mostrarDatosForm(record) {
 
 function eliminarTorneo(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si el torneo tiene participantes inscritos no se podra borrar)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,

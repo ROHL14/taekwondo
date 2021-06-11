@@ -152,7 +152,6 @@ function crearTabla() {
 			      <th scope="col">${index + 1}</th>
 			      <th scope="col">${nombre}</th>
             <th scope="col">${apellido}</th>
-            <th scope="col">${dui}</th>
 			      <th scope="col">${fechanac}</th>
             <th scope="col">${email}</th>
             <th scope="col">${telefono}</th>
@@ -230,7 +229,6 @@ function mostrarDatosForm(record) {
     id_alumno,
     nombre,
     apellido,
-    dui,
     fechanac,
     email,
     telefono,
@@ -241,7 +239,6 @@ function mostrarDatosForm(record) {
   document.querySelector("#id_alumno").value = id_alumno;
   document.querySelector("#nombre").value = nombre;
   document.querySelector("#apellido").value = apellido;
-  document.querySelector("#dui").value = dui;
   document.querySelector("#fechanac").value = fechanac;
   document.querySelector("#email").value = email;
   document.querySelector("#telefono").value = telefono;
@@ -252,7 +249,8 @@ function mostrarDatosForm(record) {
 
 function eliminarAlumno(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si borra al alumno, se borraran todos los registros que esten vinculados con el)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,

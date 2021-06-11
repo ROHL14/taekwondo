@@ -204,7 +204,8 @@ function mostrarDatosForm(record) {
 
 function eliminarEquipo(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si borra el equipo, se borraran todos los prestamos que estan vinculados con el)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,

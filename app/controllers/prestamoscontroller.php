@@ -37,13 +37,18 @@ class PrestamosController extends Controller
       $records = $this->prestamos->save($_POST);
       $info = array('success' => true, 'msg' => "Registro guardado con exito");
     } else {
-      /*if (count($this->prestamos->getOnePrestamo($_POST["id_prestamo"])) > 0) {
-        $info = array('success' => false, 'msg' => "El registro ya existe");
-      } else {*/
       $records = $this->prestamos->update($_POST);
       $info = array('success' => true, 'msg' => "Registro actualizado con exito");
-      //}
     }
+    echo json_encode($info);
+  }
+
+  public function update()
+  {
+
+    $records = $this->prestamos->update($_POST);
+    $info = array('success' => true, 'msg' => "Registro actualizado con exito");
+
     echo json_encode($info);
   }
 

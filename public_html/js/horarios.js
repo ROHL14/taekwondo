@@ -185,7 +185,8 @@ function mostrarDatosForm(record) {
 
 function eliminarHorario(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si el horario esta vinculado a algun alumno no se borrara)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,

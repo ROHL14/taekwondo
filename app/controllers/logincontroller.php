@@ -23,7 +23,7 @@ class LoginController extends Controller
 			if ($record["tipo"] == 1) {
 				$info = array('success' => true, 'msg' => 'Usuario correcto', 'link' => URL . "dashboard");
 			} else {
-				$info = array('success' => true, 'msg' => 'Usuario correcto', 'link' => URL . "dashboarduser");
+				$info = array('success' => true, 'msg' => 'Usuario correcto', 'link' => URL . "dashboard");
 			}
 		} else {
 			$info = array('success' => false, 'msg' => 'Usuario o password incorrecto');

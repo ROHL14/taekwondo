@@ -6,53 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public_html/css/login.css">
 </head>
 
-<!--<body>
-	<div class="container">
-		<section id="encabezado">
-			<?php include "app/views/secciones/encabezado_user.php" ?>
-		</section>
-		<section id="menu">
-			<?php include "app/views/secciones/menu_user.php" ?>
-		</section>
-		<section id="centro">
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src="<?php echo URL ?>public_html/images/slider_pic1.jpg" alt="First slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="<?php echo URL ?>public_html/images/slider_pic2.jpg" alt="Second slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="<?php echo URL ?>public_html/images/slider_pic3.jpg" alt="Third slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="<?php echo URL ?>public_html/images/slider_pic3.jpg" alt="Four slide">
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Anterior</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Siguiente</span>
-				</a>
-			</div>
-		</section>
-		<section id="pie">
-			<?php include "app/views/secciones/pie_user.php" ?>
-		</section>
-	</div>
-	<?php include "app/views/secciones/script_user.php" ?>
-</body>-->
-
 <body class="main-bg">
 	<div class="login-container text-c">
 		<div>
@@ -67,6 +20,8 @@
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="*****" name="pass" id="pass" required>
+				</div>
+				<div class="alert alert-danger d-none mb-4" role="alert" id="mensaje">
 				</div>
 				<button type="submit" class="form-button button-l margin-b">Login</button>
 			</form>

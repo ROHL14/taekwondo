@@ -181,7 +181,8 @@ function mostrarDatosForm(record) {
 
 function eliminarCinta(id) {
   Swal.fire({
-    title: "Esta seguro de eliminar el registro?",
+    title:
+      "Esta seguro de eliminar el registro? (Si la cinta esta vinculada a algun alumno no se borrara)",
     showDenyButton: true,
     confirmButtonText: `Si`,
     denyButtonText: `No`,
